@@ -34,18 +34,21 @@ router.post('/sign-up', async (req, res) => {
   }
 });
 
-router.post('/sign-in', async (req, res) => {
+router.post("/sign-in", async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({
+      $or: [{ username: req.body.username }, { email: req.body.username }],
+    });
     if (!user) {
-      return res.status(401).json({ err: 'Invalid credentials.' });
+      return res.status(401).json({ err: "Invalid credentials." });
     }
 
     const isPasswordCorrect = bcrypt.compareSync(
-      req.body.password, user.hashedPassword
+      req.body.password,
+      user.hashedPassword
     );
     if (!isPasswordCorrect) {
-      return res.status(401).json({ err: 'Invalid credentials.' });
+      return res.status(401).json({ err: "Invalid credentials." });
     }
 
     const payload = { username: user.username, _id: user._id };
