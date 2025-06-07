@@ -21,10 +21,16 @@ router.post('/sign-up', async (req, res) => {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
-      // avatar: req.body.avatar
+      avatar: req.body.avatar
     });
 
-    const payload = { username: user.username, _id: user._id };
+    const payload = { 
+      username: user.username,
+      _id: user._id,
+      avatar: user.avatar,
+      firstname: user.firstname,
+      lastname: user.lastname, 
+    };
 
     const token = jwt.sign({ payload }, process.env.JWT_SECRET);
 
