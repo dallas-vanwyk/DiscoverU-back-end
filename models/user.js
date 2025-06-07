@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   avatar: {
-    type: Number,
-    // required: true,
+    type: String,
+    required: true,
   },
 });
 
