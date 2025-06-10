@@ -29,7 +29,8 @@ router.post('/sign-up', async (req, res) => {
       _id: user._id,
       avatar: user.avatar,
       firstname: user.firstname,
-      lastname: user.lastname, 
+      lastname: user.lastname,
+      email: user.email, 
     };
 
     const token = jwt.sign({ payload }, process.env.JWT_SECRET);
@@ -63,6 +64,7 @@ router.post("/sign-in", async (req, res) => {
       avatar: user.avatar,
       firstname: user.firstname,
       lastname: user.lastname,
+      email: user.email,
     };
 
     const token = jwt.sign({ payload }, process.env.JWT_SECRET);
