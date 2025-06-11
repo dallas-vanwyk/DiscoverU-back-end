@@ -7,7 +7,9 @@ const verifyToken = require('../middleware/verify-token');
 
 router.get('/', verifyToken, async (req, res) => {
   try {
-    const users = await User.find({}, "username");
+    // Had to edit this line in order to allow the network page to be functional. I took out the .find({}, 'username) in order to ensure all user data was being sent to the front end. This should allow the user to see all other users when they open the network page.
+    // const users = await User.find({}, "username");
+    const users = await User.find();
 
     res.json(users);
   } catch (err) {
