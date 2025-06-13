@@ -1,30 +1,25 @@
-# Express JWT Auth Template
+# DiscoverU Backend
 
-## About
+## Description
+The backend for our DiscoverU Application! For more information please use the link below and check out the README in the front end. That will contain all the information on the entire project.
 
-This repo is an Express JWT Auth template meant to be paired with a front-end app utilizing JWT tokens.
+## <a name="technologiesused"></a>Technologies Used
+* JavaScript
+* mongoose 
+* dotenv
+* bcrypt
+* express
+* morgan 
+* jsonwebtoken
+* cors
 
-## Getting started
 
-Fork and clone this repository to your local machine.
+## Github repository
+* You can view the Backend repository:
+[Github.com](https://github.com/dallas-vanwyk/DiscoverU-back-end)
+* If unable to view please go live locally through VS Code
+* You can view the FRONTEND repository HERE:
+[Github.com](https://github.com/dallas-vanwyk/DiscoverU-front-end)
+* You can view the app deployed live here:
+[DiscoverU](https://the-budget-buddy-app.netlify.app/)
 
-After moving into the cloned directory, run `npm i` to download the dependencies.
-
-Create a `.env` file in the root of the project:
-
-```bash
-touch .env
-```
-
-and add your MongoDB URI and a secret JWT string to it. Your MongoDB URI will look something like the first entry, but with your username and password:
-
-```plaintext
-MONGODB_URI=mongodb+srv://<username>:<password>@sei.azure.mongodb.net/myApp?retryWrites=true
-JWT_SECRET=supersecret
-```
-
-Start the app in your terminal with:
-
-``` sh
-npm run dev
-```
