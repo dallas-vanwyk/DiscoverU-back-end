@@ -21,7 +21,29 @@ mongoose.connection.on("connected", () => {
 });
 
 // Middleware
-app.use(cors());
+// --- Recommended Detailed CORS Configuration ---
+const allowedOrigins = [
+  'https://discoveru.netlify.app/',
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+      } else {
+          console.warn(`CORS blocked origin: ${origin}`);
+          callback(new Error('Not allowed by CORS'));
+      };
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Explicitly allow methods including OPTIONS
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization', // Allow common headers + Authorization
+  credentials: true, // Allow credentials (cookies/auth headers)
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions)); // Apply detailed CORS options
+
+// app.use(cors());
 app.use(express.json());
 app.use(logger("dev"));
 
