@@ -23,7 +23,7 @@ mongoose.connection.on("connected", () => {
 // Middleware
 // --- Recommended Detailed CORS Configuration ---
 const allowedOrigins = [
-  'https://discoveru.netlify.app/',
+  'https://discoveru.netlify.app',
   'http://localhost:5173',
   'http://localhost:3000'
 ];
